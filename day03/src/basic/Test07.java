@@ -1,7 +1,6 @@
 package basic;
 
 import java.util.Calendar;
-import java.util.Date;
 public class Test07 {
 	public static void main(String[] args) {
 
@@ -21,17 +20,16 @@ public class Test07 {
 			int thisYear = Calendar.getInstance().get(Calendar.YEAR);
 			
 		//계산    																	나누기= 앞자리 / 나머지= 뒷자리를 구할때 
+			
 			int year = birthday / 10000;
 			int month = birthday / 100 % 100; 
 			int day = birthday % 100;
-			int KoreanAge =  thisYear- year +1;
+			int KoreanAge =  thisYear - year +1;
 			int age = (20200420 - birthday)/10000;
-			Date date = new Date();
-
+			
 		//출력
 				
 				System.out.println(thisYear);
-				System.out.println(date);
 				System.out.println(year);
 				System.out.println(month);
 				System.out.println(day);
