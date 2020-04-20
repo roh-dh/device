@@ -9,9 +9,10 @@ public class Test10 {
 	10시 45분에 주차장에 들어온 차가 17시 20분에 나가려고 할 때, 이 차의 주차요금을 계산하여 화면에 출력해주세요
 	*/
 public static void main (String[] args) {
-	int hour = 60;
-	int enter = 10 * hour + 45; 
-	int exit = 17 * hour + 20;
+	int enterHour = 10, enterMinute = 45;
+	int exitHour = 17, exitMinute = 20;
+	int enter = enterHour * 60 + enterMinute; 
+	int exit = exitHour * 60 + exitMinute;
 	int fee = 500;
 
 //	int totalprice = ((exit-enter-9)/10*fee+fee);

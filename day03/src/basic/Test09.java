@@ -20,8 +20,9 @@ Test09.java
 		
 		
 int price = 1000;
-
-int playtime = (3*60+35)/30 ;
+int playHour = 3;
+int playMinute = 35;
+int playtime = (playHour*60+playMinute)/30 ;
 
 int totalprice = (playtime)*price+price;
 
