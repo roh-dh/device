@@ -12,8 +12,7 @@ public class Test18 {
 
 //		그리고 : && 			
 //		또는 : || 		
-		boolean pass = ( 60<= score ) && (score <= 100);
-
+		boolean pass = (60 <= score) && (score <= 100);
 
 		System.out.println(pass);
 	}
