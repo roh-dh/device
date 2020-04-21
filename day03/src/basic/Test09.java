@@ -15,18 +15,20 @@ Test09.java
 ~59분	2000원
 ...	...
 당구장을 3시간 35분 이용한 경우 발생하는 요금을 출력하세요  
+
  */
+		
+//		준비 : 이용시간		
 
-		
-		
-int price = 1000;
-int playHour = 3;
-int playMinute = 35;
+int playHour = 3, playMinute = 35;
+
+//		계산 : 이용시간(분), 요금
+int termPrice = 1000; //기준요금(원)
+
 int playtime = (playHour*60+playMinute)/30 ;
+int totalprice = (playtime)*termPrice+termPrice;
 
-int totalprice = (playtime)*price+price;
-
-
+//		출력
 System.out.println(totalprice);
 		
 	}
