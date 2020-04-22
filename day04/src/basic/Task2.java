@@ -27,9 +27,9 @@ public class Task2 {
 		int age = (thisyear-bornyear)+1;
 		System.out.println(age);
 
-		boolean adult = age >= 20;
+		boolean isAdult = age >= 20;
 //결과 
-		System.out.println(adult);
+		System.out.println(isAdult);
 	}
 
 }

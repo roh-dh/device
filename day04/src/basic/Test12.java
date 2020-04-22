@@ -11,7 +11,5 @@ public class Test12 {
 //		double avg = (double)(kor +math) / 2;
 		
 		System.out.println(avg);
-		System.out.println(77.5);
-		
 	}
 }
