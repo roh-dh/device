@@ -1,6 +1,6 @@
 package basic;
 
-public class task2 {
+public class Task2 {
 
 	public static void main(String[] args) {
 /*		20010715 라는 생년월일 값이 정수로 주어져 있을 때, 
