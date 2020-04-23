@@ -33,7 +33,7 @@ public class Task01 {
 //		System.out.println(isCorrect);
 //		System.out.println(isCorrect2);
 //		System.out.println(isCorrect3);
-										
+		
 		boolean isCorrect4 = (isCorrect == isCorrect2) && (year%4==0);
 		System.out.println(isCorrect4);
 		//		boolean isCorrect = (1000 <= year) && (year <= 9999);		//4자리 정수를 입력받습니까?
@@ -45,6 +45,7 @@ public class Task01 {
 //		System.out.println(true); //2000	윤년(leapYear)이면 true
 //		System.out.println(false); //2100
 //		System.out.println(true); //2020
+
 	}
 
 }

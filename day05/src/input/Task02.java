@@ -21,21 +21,36 @@ public class Task02 {
 
 		//준비 1시간을 사용하고 // 5천원을 냈다고 가정을 해보자
 
-//		Scanner sc = new Scanner(System.in);
-				
-//		int chargetime = 60, addtime = 10;
-//		int  = chargetime+addtime;
+//	준비
+		Scanner sc = new Scanner(System.in);
 		
-//		sc.close();
-
-		//계산
-
+		System.out.println("투입금액을 입력하세요");
 		
-		
-		//결과 실제 충전된 시간(분), 거스름 돈(원)
-//		System.out.println(70); // 60 + 10
+		int money = 10000;
+		System.out.println("이용시간을 설정하세요");
+		int hour = 3;
+		sc.close();
 
-//		System.out.println(4000); // 5000 - 1000
+		int bonusPerHour = 10;
+		int pricePerHour = 1000;
+		
+//	계산 =요금, 충전시간, 거스름돈
+		int bonus= hour*bonusPerHour;
+		int charge = hour*60;
+		int total = charge+ bonus;
+		
+		int price = hour * pricePerHour;
+		int change = money - price;
+		
+//	출력
+		System.out.println("충전 시간 : "+hour+"시간 0분");
+		System.out.println("보너스 시간 : "+bonus / 60 +"시간 " +bonus) ;
+		System.out.println("총 충전 시간 : "+total / 60 + "시간"+ total%60 +"분");
+		
+		System.out.println("투입금액 : "+money+"원");
+		System.out.println("이용요금 : "+price+"원");
+		System.out.println("거스름돈 : "+change +"원");
+		
 	}
 
 }
