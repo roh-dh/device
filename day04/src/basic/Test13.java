@@ -22,8 +22,11 @@ BMI = 	ㅡㅡㅡㅡㅡ
  		double bmi = weight/(m*m);
  		System.out.println(bmi);
 
+ // 소숫점 없애기
+ 		
+ 		
  		bmi = bmi*100;
- 		bmi = (int)bmi;
+ 		bmi = (int)bmi;	
  		bmi = bmi / 100;
  		System.out.println(bmi);
 

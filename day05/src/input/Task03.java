@@ -3,7 +3,6 @@ package input;
 import java.util.Scanner;
 
 public class Task03 {
-
 	public static void main(String[] args) {
 
 //		준비 : 커피가격, 주문 개수

@@ -23,9 +23,9 @@ System.out.println("닉네임을 입력하세요");
 
 		boolean isCorrect = (2 <= nickname.length()) && (nickname.length() <= 8);
 //출력		
-		System.out.println("닉네임은 "+nickname);
-		System.out.println("닉네임길이 "+nickname.length());
-		System.out.println("닉네임을 사용할수 있는지?"+isCorrect);
+		System.out.println(nickname);
+		System.out.println(nickname.length());
+		System.out.println(isCorrect);
 	}
 
 }

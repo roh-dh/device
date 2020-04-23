@@ -1,9 +1,7 @@
 package input;
-
+import java.lang.*;
 import java.util.*;
-
 public class Task02 {
-
 	public static void main(String[] args) {
 		/*		Test09.java
 		PC방 충전 프로그램
@@ -52,5 +50,5 @@ public class Task02 {
 		System.out.println("거스름돈 : "+change +"원");
 		
 	}
-
 }
+
