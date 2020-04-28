@@ -19,16 +19,17 @@ public class Task01 {
 //		(사용자는 컴퓨터가 생성한 숫자를 확인 할 수 없습니다.)
 
 //		1부터 1000사이의 무작위 숫자 생성		
+//		1부터 1000사이의 무작위 숫자 생성		
 		Random r = new Random();
 		int number = r.nextInt(1000) + 1;
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("숫자를 입력하세요.");
 		
-
-		int a = 0;
-		while (a<100) {
-
+		int count = 0;
+		int a =0;
+		while (true) {
+			count++;
 			int input = sc.nextInt(); // 입력한 값
 			if (number == input) {
 				System.out.println("정답!");
@@ -41,5 +42,6 @@ public class Task01 {
 			a++;
 		}
 		System.out.println(number);
+		System.out.println(count+"번");
 	}
 }
