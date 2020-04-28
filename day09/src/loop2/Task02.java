@@ -8,7 +8,7 @@ public class Task02 {
 			int a = j;
 			int count = 0;
 
-			for (int i = 1; i <= a; i++) {
+			for (int i = 1; i <= a; i++) { 
 				if (a % i == 0) {
 					count++;
 				}
@@ -22,7 +22,7 @@ public class Task02 {
 			} else {
 				str = (j + " : 합성수");
 			}
-			System.out.println(str);
+			System.out.println(str); //반복해야되므로 for문안에 들어가야됨
 		}
 	}
 }
