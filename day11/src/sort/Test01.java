@@ -10,7 +10,7 @@ public class Test01 {
 		int[] data = new int[] {3,5,2,1,4};
 		
 //		selection-sort 방식으로 data를 오름차순 정렬
-//		-> 가장 작은 데이터를 찾아서 앞으로 옮긴다. (data.length -1)번
+//		-> 가장 작은 데이터를 찾아서 앞으로 옮긴다. 반복 횟수(data.length -1)번
 		
 		
 		for(int i=0; i<data.length-1; i++) {			
