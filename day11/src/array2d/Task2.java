@@ -12,12 +12,13 @@ public class Task2 {
 		for (int i = 0; i < bingoBorad.length; i++) {
 			for (int k = 0; i < bingoBorad[i].length; k++) {
 				bingoBorad[i][k] = num++; // 0102030405........5152535455
-				System.out.println("빙고판 : " + bingoBorad[i][k]); // 범위오류
+				System.out.println("빙고판 : " + bingoBorad[i][k]); // 범위오류?
 			}
 
 			for (int i = 0; i < bingoBorad.length; i++) {
 				for (int k = 0; i < bingoBorad[i].length; k++) {
 					int bingoRandom = r.nextInt(25) + 1;
+					
 					
 				}
 			}
