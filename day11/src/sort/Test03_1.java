@@ -6,7 +6,7 @@ public class Test03_1 {
 		
 //		데이터 준비.
 		int[] data = new int[] {6,5,3,1,8,7,2,4};
-//		계산(정렬)
+//		계산(정렬)  
 		for(int i=0; i<data.length; i++) {
 			
 		
