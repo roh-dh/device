@@ -7,7 +7,7 @@ public class Exercise {
 
 //	 오른쪽숫자와 계속비교해가면서 크면 자리바꿈
 
-		int[] data = new int[] { 3, 5, 2, 1, 4 };
+		int[] data = new int[] { 3, 5, 2, 1, 4, 6 };
 
 		int i, j, tmp;
 

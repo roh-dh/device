@@ -2,7 +2,7 @@
 public class Info {
 
 	public static void main(String[] args) {
-		System.out.println("³ëµ¿È¯ 5°³¿ùµ¿¾È ¿­½ÉÈ÷");
+		System.out.println("ï¿½ëµ¿È¯ 5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 	}
 
