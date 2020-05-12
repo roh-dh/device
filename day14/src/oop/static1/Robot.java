@@ -24,12 +24,12 @@ public class Robot {
 	}
 	public int getC() {
 		return c;
-	}
-	
+	}	
+}
+
 //	생성자
 //	public Robot() {} 기본생성자.
 	
 	
 	
 	
-}
