@@ -4,7 +4,7 @@ public class Wraith extends Terran implements FlyingUnit{
 
 	@Override
 	public void fly() {
-System.out.println("레이스 이동");
+System.out.println("레이스 비행");
 		
 	}
 
