@@ -13,7 +13,9 @@ public class Test08 {
 		
 		String c= "123"; // 
 		int d = Integer.parseInt(c);  // String-> int 변환
-		System.out.println(d);
+		System.out.println(d); 
 			
+		
+		
 	}
 }
