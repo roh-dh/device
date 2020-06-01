@@ -97,8 +97,7 @@ public class ClientDao {
 	}
 
 	public List<ClientDto> search(String keyword, String column) throws Exception{
-		Connection con = getConnection();
-		
+		Connection con = getConnection();		
 		String sql = "SELECT * FROM client WHERE instr(#1, ?) > 0 ORDER BY #1 ASC";
 		sql = sql.replace("#1", column);//#1을 column 값으로 치환해라
 
