@@ -39,7 +39,7 @@
 		
 		<!-- 검색창 시작 -->
 		<form action="test04.jsp">
-			<input type="search" name="key" placeholder="검색어 입력" >
+			<input type="search" name="key" placeholder="검색어 입력" value="<%=key%>">
 			<input type="submit" value="검색">
 		</form>
 		<!-- 검색창 종료 -->

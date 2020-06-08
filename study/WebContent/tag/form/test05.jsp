@@ -1,5 +1,4 @@
-<%@page import="study.beans.student.StudentDto"%>
-<%@page import="study.beans.student.StudentDao"%>
+<%@page import="study.beans.StudentDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
