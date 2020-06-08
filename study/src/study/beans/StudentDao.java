@@ -12,8 +12,8 @@ public class StudentDao {
 	public Connection getConnection() throws Exception {
 		Class.forName("oracle.jdbc.OracleDriver");
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "c##study";
-		String password = "c##study";
+		String user = "c##student";
+		String password = "c##student";
 
 		return DriverManager.getConnection(url, user, password);
 	}
