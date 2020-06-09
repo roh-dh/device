@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import study.beans.StudentDao;
-import study.beans.StudentDto;
+import study.beans.student.StudentDao;
+import study.beans.student.StudentDto;
 
 @WebServlet(urlPatterns = "/student/detail.do")
 public class StudentDetailServlet extends HttpServlet {

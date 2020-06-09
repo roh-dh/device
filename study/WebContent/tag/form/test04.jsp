@@ -1,6 +1,6 @@
-<%@page import="study.beans.ClientDto"%>
+<%@page import="study.beans.client.ClientDto"%>
 <%@page import="java.util.List"%>
-<%@page import="study.beans.ClientDao"%>
+<%@page import="study.beans.client.ClientDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -9,7 +9,7 @@
 	//1. 해당 파라미터가 있으면 "검색"으로 간주하여 처리합니다.(key != null)
 	//2. 해당 파라미터가 없으면 "목록"으로 간주하여 처리합니다.(key == null)
 	String key = request.getParameter("key");
-	boolean isSearch = key != null;
+	boolean isSearch = key != null && !key.equals("");// key가 있으면서 비어있지 않습니까? 
 	
 	ClientDao cdao = new ClientDao();
 	//List<ClientDto> list = 목록 or 검색결과;
@@ -31,7 +31,7 @@
 <body>
 	<div align="center">
 		<div>
-			key = <%=key%>, 
+			key : <%=key%>, 
 			isSearch : <%=isSearch%>
 		</div>
 	
@@ -39,7 +39,11 @@
 		
 		<!-- 검색창 시작 -->
 		<form action="test04.jsp">
-			<input type="search" name="key" placeholder="검색어 입력" value="<%=key%>">
+			<%if(key==null){ %> <!--초기검색창에 null이 안뜨게하기위해서 1(검색어가 없으면) -->
+			<input type="search" name="key" placeholder="검색어 입력" value=""> <!--검색칸 비우고 -->
+			<%} else{ %>
+			<input type="search" name="key" placeholder="검색어 입력" value="<%=key %>"> <!--검색했던것을 검색칸에 둔다.  -->
+			<% }%>
 			<input type="submit" value="검색">
 		</form>
 		<!-- 검색창 종료 -->
@@ -67,7 +71,8 @@
 					<td><%=cdto.getClient_auth()%></td>
 					<td><%=cdto.getClient_join()%></td>
 					<td><%=cdto.getClient_point()%></td>
-					<td>?</td>
+					<td><a href="detail.jsp?client_no=<%=cdto.getClient_no()%>">상세</a>
+					 </td>
 				</tr>
 				<%} %>
 			</tbody>

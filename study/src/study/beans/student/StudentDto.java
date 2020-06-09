@@ -1,4 +1,4 @@
-package study.beans;
+package study.beans.student;
 
 public class StudentDto {
 	private int student_no;

@@ -1,4 +1,4 @@
-package study.beans;
+package study.beans.client;
 
 public class ClientDto {
  private int client_no;

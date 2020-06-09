@@ -1,4 +1,4 @@
-package study.beans;
+package study.beans.student;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

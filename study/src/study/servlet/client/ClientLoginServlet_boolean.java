@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import study.beans.ClientDao;
-import study.beans.ClientDto;
+import study.beans.client.ClientDao;
+import study.beans.client.ClientDto;
 
 @WebServlet(urlPatterns = "/client/login.do")
 public class ClientLoginServlet_boolean extends HttpServlet {
