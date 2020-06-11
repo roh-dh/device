@@ -10,6 +10,15 @@
 </head>
 <body>
 	<!-- 이미지 -->
+	<!--
+	<img>:이미지 삽입태그
+속성 
+src : 이미지 경로
+alt : 이미지 표시할수없을때 출력내용
+width : 이미지의 가로 크기
+height : 이미지의 세로 크기
+loading : 이미지 로딩 방식 loading="lazy" 이미지 일부만  
+-->
 	
 	before
 	<hr>
