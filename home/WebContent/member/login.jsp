@@ -45,6 +45,7 @@
 		<h6><font color="#FF0000">입력하신 로그인 정보가 맞지 않습니다</font></h6>
 	<%} %>
 	
+	
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

@@ -25,7 +25,9 @@ public class MemberLoginServlet extends HttpServlet{
 			
 			//처리
 			MemberDao mdao = new MemberDao();
-			MemberDto user = mdao.login(mdto);
+			
+			MemberDto user = mdao.login(mdto); // mdto에 저장해놓은 2개 데이터를 줄테니까 MemberDto들어있는거(회원정보) 모두 내놔라
+			//반환:MemberDto를 유저라는 변수명으로 반환해라 읽어오기: mdao안에서 변수명login에 mdto에 들어있는것들을 받아서 읽어온다.			
 			
 			//출력
 			if(user == null) {//로그인 실패
@@ -40,8 +42,8 @@ public class MemberLoginServlet extends HttpServlet{
 //				- JSP에서는 session이라는 이름으로 바로 접근이 가능하도록 준비되어 있다
 				req.getSession().setAttribute("userinfo", user);
 				
-//				resp.sendRedirect("../index.jsp");//사용자에게 메인 페이지로 가도록 지시
-				resp.sendRedirect(req.getContextPath());//메인 페이지의 절대경로
+//				resp.sendRedirect("../index.jsp");//사용자에게 메인 페이지로 가도록 지시(상대경로)
+				resp.sendRedirect(req.getContextPath());//메인 페이지의 절대경로 (절대경로가 안전!)
 			}
 		}
 		catch(Exception e) {

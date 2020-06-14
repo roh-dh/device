@@ -11,6 +11,7 @@
 <%
 	//rootPath에는 프로젝트 root path(/home)가 자동으로 계산되어 저장된다. 이는 절대경로 작성 시 활용할 수 있다.
 	String rootPath = request.getContextPath();
+
 	//로그인 여부에 따른 메뉴 구성을 변경
 	// - 세션에 "userinfo"라는 데이터가 있으면 로그인 , 없으면 로그아웃 상태
 	MemberDto mdto = (MemberDto)session.getAttribute("userinfo");//다운캐스팅(down-casting)
