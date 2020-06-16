@@ -71,7 +71,7 @@ XML(eXtend Markup Language)
 	</filter-mapping>
 	
 	<!--testLoginFilter  --> 
-	<filter>
+<!-- 	<filter>
 		<filter-name>testLoginFilter</filter-name>
 		<filter-class>home.filter.TestLoginFilter</filter-class>
 	</filter>
@@ -79,7 +79,7 @@ XML(eXtend Markup Language)
 	<filter-mapping>
 	<filter-name>testLoginFilter</filter-name>
 	<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 	
 	<!--loginFilter  -->
 	<filter>
