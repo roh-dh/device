@@ -60,7 +60,13 @@
 						<%=bdto.getBoard_title()%>
 					</a>
 				</td>
-				<td><%=bdto.getBoard_writer()%></td>
+				<td>
+					<%if(bdto.getBoard_writer() != null){ %>
+						<%=bdto.getBoard_writer()%>
+					<%} else { %>
+						<font color="gray">탈퇴한 사용자</font>
+					<%} %>
+				</td>
 				<td><%=bdto.getBoard_date()%></td>
 				<td><%=bdto.getBoard_read()%></td>
 			</tr>
@@ -102,3 +108,9 @@
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
+
+
+
+
+
+

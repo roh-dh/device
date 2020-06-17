@@ -83,14 +83,15 @@ public class BoardDao {
 	}
 	
 	//조회수 증가
-	public void plusReadcount(int board_no) throws Exception {
+	public void plusReadcount(int board_no, String member_id) throws Exception {
 		Connection con = getConnection();
 		
 		String sql = "UPDATE board "
 						+ "SET board_read = board_read + 1 "
-						+ "WHERE board_no = ?";
+						+ "WHERE board_no = ? and board_writer != ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, board_no);
+		ps.setString(2, member_id);
 		ps.execute();
 		
 		con.close();
@@ -144,6 +145,35 @@ public class BoardDao {
 		
 		con.close();
 	}
+	
+	//게시글 수정
+	public void edit(BoardDto bdto) throws Exception {
+		Connection con = getConnection();
+		
+		String sql = "UPDATE board SET "
+							+ "board_head=?, board_title=?, board_content=? "
+							+ "where board_no=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, bdto.getBoard_head());
+		ps.setString(2, bdto.getBoard_title());
+		ps.setString(3, bdto.getBoard_content());
+		ps.setInt(4, bdto.getBoard_no());
+		ps.execute();
+		
+		con.close();
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 

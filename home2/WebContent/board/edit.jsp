@@ -1,19 +1,29 @@
+<%@page import="home.beans.dto.BoardDto"%>
+<%@page import="home.beans.dao.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- 
-	write.jsp : 게시글 작성 페이지
-	- 입력 항목은 3개 : board_head, board_title, board_content
-	- 작성자는 회원정보가 자동으로 설정
- -->
- 
+	edit.jsp : 게시글 수정 페이지
+	- 구조는 write.jsp와 동일하지만 차이가 있다면 글 정보가 미리 표시되어 있어야 한다
+	- 정보를 표시해줘야 하기 때문에 PK(board_no)가 필요하다
+-->
+<%
+	int board_no = Integer.parseInt(request.getParameter("board_no"));
+	BoardDao bdao = new BoardDao();
+	BoardDto bdto = bdao.get(board_no);
+%>
+
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="center">
 	
-	<h2>게시글 작성</h2>
+	<h2>게시글 수정</h2>
 	
 	<!-- 게시글 전송 폼 -->
-	<form action="write.do" method="post">
+	<form action="edit.do" method="post">
+	
+		<!-- 수정이 가능하도록 PK를 숨김 첨부한다 -->
+		<input type="hidden" name="board_no" value="<%=board_no%>">
 		
 		<table border="1">
 			<tbody>
@@ -33,21 +43,23 @@
 					<th>제목</th>
 					<td>
 						<!-- 제목은 일반 입력창으로 구현 -->
-						<input type="text" name="board_title" size="70" required>
+						<input type="text" name="board_title" size="70" required
+								value="<%=bdto.getBoard_title()%>">
 					</td>
 				</tr>
 				<tr>
 					<th>내용</th>
 					<td>
 						<!-- 내용은 textarea로 구현 -->
-						<textarea name="board_content" required rows="15" cols="72"></textarea>
+						<textarea name="board_content" required 
+							rows="15" cols="72"><%=bdto.getBoard_content()%></textarea>
 					</td>  
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="submit" value="작성">
+						<input type="submit" value="수정">
 					</td>
 				</tr>
 			</tfoot>
@@ -58,6 +70,14 @@
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
+
+
+
+
+
+
+
+
 
 
 

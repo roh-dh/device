@@ -24,7 +24,6 @@
 	<a href="<%=rootPath%>/member/logout.do">로그아웃</a>
 	<a href="<%=rootPath%>/member/info.jsp">내정보</a>
 	
-	
 	<!-- 로그인 된 사용자 중에서도 "관리자" 인 경우만 나와야 하는 메뉴 -->
 	<%if(mdto.getMember_auth().equals("관리자")){ %>
 	<a href="<%=rootPath%>/admin/home.jsp">관리메뉴</a>

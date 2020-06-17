@@ -15,7 +15,9 @@
 	BoardDao bdao = new BoardDao();
 	
 	//board_no를 이용하여 조회수를 증가시킨다
-	bdao.plusReadcount(board_no); 
+	// - 내 글인 경우에는 조회수가 늘어나면 안되기 때문에 현재 사용자의 ID를 같이 전달
+	MemberDto user = (MemberDto) session.getAttribute("userinfo");
+	bdao.plusReadcount(board_no, user.getMember_id());  
 	
 	//board_no를 이용하여 BoardDto를 얻어낸다
 	BoardDto bdto = bdao.get(board_no);
@@ -26,12 +28,10 @@
 	
 	//내글인지 또는 관리자인지를 파악하여 이후의 작업에 적용
 	// - 관리자 : 세션에 있는 userinfo 데이터의 권한 정보
-	MemberDto user = (MemberDto)session.getAttribute("userinfo");
 	boolean isAdmin = user.getMember_auth().equals("관리자");
 	
-	// -내글 : 게시글의 작성자와 로그인 된 사용자(user)의 아이디가 같아야 함
-	boolean isMine =user.getMember_id().equals(bdto.getBoard_writer());
-		
+	// - 내글 : 게시글(bdto)의 작성자와 로그인 된 사용자(user)의 아이디가 같아야 함
+	boolean isMine = user.getMember_id().equals(bdto.getBoard_writer());
 %>     
 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -57,12 +57,18 @@
 			<tr>
 				<td>
 					<!-- 작성자 -->
-					<%=bdto.getBoard_writer()%>
+					<%if(bdto.getBoard_writer() != null){ %>
+						<%=bdto.getBoard_writer()%>
+					<%} else { %>
+						<font color="gray">탈퇴한 사용자</font>
+					<%} %>
 					
-					<!-- 작성자 권한 -->
+					<%if(mdto != null){ %>
+					<!-- 작성자 권한은 사용자가 탈퇴한 경우에는 출력하지 않는다 -->
 					<font color="gray">
 					<%=mdto.getMember_auth()%>
 					</font>
+					<%} %>
 				</td>
 			</tr>
 			<tr>
@@ -86,8 +92,13 @@
 					</a>
 					
 					<input type="button" value="답글">
+					
 					<%if(isAdmin || isMine){ %>
+					<!-- 관리자이거나 내 글인 경우만 수정/삭제 버튼을 표시 -->
+					
+					<a href="edit.jsp?board_no=<%=board_no%>">
 					<input type="button" value="수정">
+					</a>
 					
 					<a href="<%=request.getContextPath()%>/member/check.jsp?go=<%=request.getContextPath()%>/board/delete.do?board_no=<%=board_no%>">
 					<input type="button" value="삭제">
@@ -104,3 +115,7 @@
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
+
+
+
+

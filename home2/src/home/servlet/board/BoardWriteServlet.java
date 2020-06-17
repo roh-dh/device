@@ -42,3 +42,12 @@ public class BoardWriteServlet extends HttpServlet{
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
