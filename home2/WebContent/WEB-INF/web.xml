@@ -97,7 +97,9 @@ XML(eXtend Markup Language)
 		<url-pattern>/member/change_info.jsp</url-pattern>
 		<url-pattern>/member/change_info.do</url-pattern>
 		<url-pattern>/member/check.jsp</url-pattern>
-		<url-pattern>/member/check.do</url-pattern>		
+		<url-pattern>/member/check.do</url-pattern>
+		<url-pattern>/admin/*</url-pattern>		
+		<url-pattern>/board/*</url-pattern>		
 	</filter-mapping>
 	
 	<!--adminFilter  -->

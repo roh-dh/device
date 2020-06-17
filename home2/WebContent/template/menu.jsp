@@ -11,7 +11,6 @@
 <%
 	//rootPath에는 프로젝트 root path(/home)가 자동으로 계산되어 저장된다. 이는 절대경로 작성 시 활용할 수 있다.
 	String rootPath = request.getContextPath();
-
 	//로그인 여부에 따른 메뉴 구성을 변경
 	// - 세션에 "userinfo"라는 데이터가 있으면 로그인 , 없으면 로그아웃 상태
 	MemberDto mdto = (MemberDto)session.getAttribute("userinfo");//다운캐스팅(down-casting)
@@ -23,7 +22,6 @@
 	<a href="<%=rootPath%>/index.jsp">홈으로</a>
 	<a href="<%=rootPath%>/member/logout.do">로그아웃</a>
 	<a href="<%=rootPath%>/member/info.jsp">내정보</a>
-	
 	
 	<!-- 로그인 된 사용자 중에서도 "관리자" 인 경우만 나와야 하는 메뉴 -->
 	<%if(mdto.getMember_auth().equals("관리자")){ %>
@@ -38,7 +36,3 @@
 	<a href="<%=rootPath%>/member/login.jsp">로그인</a>
 	<a href="<%=rootPath%>/board/list.jsp">게시판</a>
 <%} %>
-
-
-
-

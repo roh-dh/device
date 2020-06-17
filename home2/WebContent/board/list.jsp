@@ -60,8 +60,14 @@
 						<%=bdto.getBoard_title()%>
 					</a>
 				</td>
-				<td><%=bdto.getBoard_writer()%></td>
-				<td><%=bdto.getBoard_date()%></td>
+				<td>
+					<%if(bdto.getBoard_writer() != null){ %>
+						<%=bdto.getBoard_writer()%>
+					<%} else { %>
+						<font color="gray">탈퇴한 사용자</font>
+					<%} %>
+				</td>
+				<td><%=bdto.getBoard_autotime()%></td>
 				<td><%=bdto.getBoard_read()%></td>
 			</tr>
 			<%} %>
