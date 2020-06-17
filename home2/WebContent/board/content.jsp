@@ -1,3 +1,5 @@
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Set"%>
 <%@page import="home.beans.dto.MemberDto"%>
 <%@page import="home.beans.dao.MemberDao"%>
 <%@page import="home.beans.dto.BoardDto"%>
@@ -11,13 +13,35 @@
 	//3. 결과 : 단일 조회 결과(게시글 , BoardDto)
 	
 	int board_no = Integer.parseInt(request.getParameter("board_no"));
+	///////////////////////////////////////////////////////////////
+	// 게시글 조회수 중복방지를 위한 저장소 처리 코드 구현
+	///////////////////////////////////////////////////////////////
+	// 1. memory 라는 이름으로 세션에 Set을 저장
+	
+	// - 세션에 memory라는 저장소 정보를 추출한다(없을 수도 있다)
+	Set<Integer> memory = (Set<Integer>)session.getAttribute("memory");
+	
+	// - memory가 없을 경우에는 "게시글을 아예 처음 읽는 경우"이므로 저장소 생성
+	if(memory == null){
+		memory = new HashSet<>();
+	}
+	
+	//- memory에 현재 글 번호를 저장
+	boolean isFirst = memory.add(board_no);
+	
+	session.setAttribute("memory", memory);
+	
 	
 	BoardDao bdao = new BoardDao();
 	
 	//board_no를 이용하여 조회수를 증가시킨다
 	// - 내 글인 경우에는 조회수가 늘어나면 안되기 때문에 현재 사용자의 ID를 같이 전달
 	MemberDto user = (MemberDto) session.getAttribute("userinfo");
-	bdao.plusReadcount(board_no, user.getMember_id());  
+	
+	//isFirst가 true인 경우만(즉 처음 읽은 경우만) 조회수를 증가 시켜주세요
+	if(isFirst){
+		bdao.plusReadcount(board_no, user.getMember_id());
+	}
 	
 	//board_no를 이용하여 BoardDto를 얻어낸다
 	BoardDto bdto = bdao.get(board_no);

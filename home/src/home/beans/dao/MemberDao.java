@@ -219,7 +219,55 @@ public class MemberDao {
 		return list;
 	}
 
+	//(관리자) 회원 검색 기능(타입 추가) - 메소드 오버로딩
+	public List<MemberDto> search(String type, String keyword) throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "SELECT * FROM member WHERE instr(#1, ?) > 0 ORDER BY #1 ASC";
+		sql = sql.replace("#1", type);
+		System.out.println("sql = " + sql);
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, keyword);
+		ResultSet rs = ps.executeQuery();
+		
+		//나머지 처리는 다른 목록들과 동일하다
+		List<MemberDto> list = new ArrayList<>();
+		while(rs.next()) {
+			MemberDto mdto = new MemberDto(rs);
+			list.add(mdto);
+		}
+		
+		con.close();
+		
+		return list;
+	}
+	
+	//(관리자) 회원 정보 수정
+	public void editByAdmin(MemberDto mdto) throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "UPDATE member SET "
+								+ "member_pw=?, member_nick=?, post=?, base_addr=?, extra_addr=?, "
+								+ "member_birth=?, member_phone=?, member_intro=?, member_auth=? "
+							+ "WHERE member_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, mdto.getMember_pw());
+		ps.setString(2, mdto.getMember_nick());
+		ps.setString(3, mdto.getPost());
+		ps.setString(4, mdto.getBase_addr());
+		ps.setString(5, mdto.getExtra_addr());
+		ps.setString(6, mdto.getMember_birth());
+		ps.setString(7, mdto.getMember_phone());
+		ps.setString(8, mdto.getMember_intro());
+		ps.setString(9, mdto.getMember_auth());
+		ps.setString(10, mdto.getMember_id());
+		ps.execute();
+		
+		con.close();
+	}
 }
+
 
 
 

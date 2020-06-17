@@ -2,7 +2,6 @@ package home.beans.dto;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -70,24 +69,23 @@ public class BoardDto {
 	//[2] getBoard_day() : 날짜를 반환하는 메소드
 	//[3] getBoard_autotime() : 자동으로 오늘날짜에는 시간을, 아닌 경우는 날짜를 반환
 	public String getBoard_time() {
-		return board_date.substring(11,16);
+		return board_date.substring(11, 16);
 	}
 	
 	public String getBoard_day() {
-		return board_date.substring(0,10);
+		return board_date.substring(0, 10);
 	}
+	
 	public String getBoard_autotime() {
-	Date d = new Date();
-	Format f = new SimpleDateFormat("yyyy-MM-dd");
-	
-	String today =f.format(d);
-	
-	if(getBoard_day().equals(today)) {//오늘 작성한 글이라면
-		return getBoard_time();
+//		Date d = new Date();
+//		Format f = new SimpleDateFormat("yyyy-MM-dd");
+//		String today = f.format(d);
+		String today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+		if(getBoard_day().equals(today)) {//오늘 작성한 글이라면
+			return getBoard_time();
+		}
+		else {//아니라면
+			return getBoard_day();
+		}
 	}
-	else {
-		return getBoard_day();
-	}
-	}
-	
 }
