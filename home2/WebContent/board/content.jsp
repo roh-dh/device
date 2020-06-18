@@ -132,7 +132,7 @@
 			<!-- 댓글 작성 영역 -->
 			<tr>
 				<td align="right">
-					<form action="?" method="?">
+					<form action="/board/reply_insert.do" method="post">
 						<textarea name="?" rows="4" cols="80" placeholder="댓글 작성"></textarea>
 						<br>
 						<input type="submit" value="등록">
