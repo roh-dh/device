@@ -106,6 +106,40 @@
 					<%=bdto.getBoard_content()%>
 				</td>  
 			</tr>
+			
+			<!-- 댓글 목록 영역 -->
+			<tr>
+				<td>
+					
+					<table width="99%">
+						<tbody>
+							<tr>
+								<td>
+									<div>작성자</div>
+									<div>내용</div>
+									<div>작성일시</div>
+								</td>
+								<td width="15%">
+									수정 | 삭제
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</td>
+			</tr>
+			
+			<!-- 댓글 작성 영역 -->
+			<tr>
+				<td align="right">
+					<form action="?" method="?">
+						<textarea name="?" rows="4" cols="80" placeholder="댓글 작성"></textarea>
+						<br>
+						<input type="submit" value="등록">
+					</form>
+				</td>
+			</tr>
+			
 		</tbody>
 		<!-- 각종 버튼들 구현 -->
 		<tfoot>
