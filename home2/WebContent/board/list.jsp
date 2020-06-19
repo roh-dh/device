@@ -44,11 +44,11 @@
 		<thead>
 			<tr>
 				<th>번호</th>
-				<th width="50%">제목</th>
+				<th width="40%">제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
-				<!--테스트를 위해 항목 3개 추가  -->
+				<!-- 테스트를 위해 항목 3개를 추가 -->
 				<th>super_no</th>
 				<th>group_no</th>
 				<th>depth</th>
@@ -89,16 +89,17 @@
 				<td><%=bdto.getBoard_autotime()%></td>
 				<td><%=bdto.getBoard_read()%></td>
 				
-				<td><%=bdto.getSuper_no() %></td>
-				<td><%=bdto.getGroup_no() %></td>
-				<td><%=bdto.getDepth() %></td>
+				<!-- 테스트 항목 3개 출력 -->
+				<td><%=bdto.getSuper_no()%></td>
+				<td><%=bdto.getGroup_no()%></td>
+				<td><%=bdto.getDepth()%></td>
 			</tr>
 			<%} %>
 		</tbody>
 		
 		<tfoot>
 			<tr>
-				<td colspan="5" align="right">
+				<td colspan="8" align="right">
 					<a href="write.jsp">
 						<input type="button" value="글쓰기">
 					</a>

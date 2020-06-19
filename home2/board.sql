@@ -91,7 +91,7 @@ COMMIT;
 --데이터가 없어야 추가가 가능
 ALTER TABLE board drop(super_no);
 
-ALTER TABLE BOARD ADD super_no NOT NULL
+ALTER TABLE BOARD ADD super_no
 REFERENCES board(board_no) ON DELETE CASCADE;
 
 ALTER TABLE board ADD group_no NUMBER NOT NULL;
@@ -99,3 +99,8 @@ ALTER TABLE board ADD group_no NUMBER NOT NULL;
 ALTER TABLE board ADD DEPTH NUMBER NOT NULL;
 
 SELECT * FROM board;
+
+SELECT * FROM board
+CONNECT BY PRIOR board_no=super_no
+START WITH super_no IS NULL
+ORDER SIBLINGS BY group_no DESC, board_no ASC;
