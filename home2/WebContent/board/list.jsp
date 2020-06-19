@@ -48,6 +48,10 @@
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
+				<!--테스트를 위해 항목 3개 추가  -->
+				<th>super_no</th>
+				<th>group_no</th>
+				<th>depth</th>
 			</tr>
 		</thead>
 		<tbody align="center">
@@ -84,6 +88,10 @@
 				</td>
 				<td><%=bdto.getBoard_autotime()%></td>
 				<td><%=bdto.getBoard_read()%></td>
+				
+				<td><%=bdto.getSuper_no() %></td>
+				<td><%=bdto.getGroup_no() %></td>
+				<td><%=bdto.getDepth() %></td>
 			</tr>
 			<%} %>
 		</tbody>

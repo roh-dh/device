@@ -15,6 +15,11 @@
 	<!-- 게시글 전송 폼 -->
 	<form action="write.do" method="post">
 		
+		<!-- 원본글번호가 넘어온다면(즉, 답글이라면) 원본글번호를 hidden으로 첨부 -->
+		<%if(request.getParameter("board_no") !=null){ %>
+		<input type="hidden" name="board_no" value="<%=request.getParameter("board_no")%>">
+		<%} %>
+		
 		<table border="1">
 			<tbody>
 				<tr>

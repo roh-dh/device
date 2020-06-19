@@ -22,6 +22,12 @@ public class BoardDto {
 		this.setBoard_read(rs.getInt("board_read"));
 		//추가된 항목에 대한 코드도 작성
 		this.setBoard_replycount(rs.getInt("board_replycount"));
+		
+		//계층형 데이터 복사 코드
+		this.setSuper_no(rs.getInt("super_no"));
+		this.setGroup_no(rs.getInt("group_no"));
+		this.setDepth(rs.getInt("depth"));
+		
 	}
 	public int getBoard_no() {
 		return board_no;
@@ -98,5 +104,25 @@ public class BoardDto {
 	}
 	public void setBoard_replycount(int board_replycount) {
 		this.board_replycount = board_replycount;
+	}
+// 계층형 게시판을 위해 추가한 데이터 구현
+	private int super_no,group_no, depth;
+	public int getSuper_no() {
+		return super_no;
+	}
+	public void setSuper_no(int super_no) {
+		this.super_no = super_no;
+	}
+	public int getGroup_no() {
+		return group_no;
+	}
+	public void setGroup_no(int group_no) {
+		this.group_no = group_no;
+	}
+	public int getDepth() {
+		return depth;
+	}
+	public void setDepth(int depth) {
+		this.depth = depth;
 	}
 }

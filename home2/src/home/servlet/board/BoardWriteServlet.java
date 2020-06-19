@@ -28,10 +28,15 @@ public class BoardWriteServlet extends HttpServlet{
 			bdto.setBoard_title(req.getParameter("board_title"));
 			bdto.setBoard_content(req.getParameter("board_content"));
 			bdto.setBoard_writer(member_id);
+			//게시글 번호(board_no)를 있을 때만 받는다 --> super_no에 저장!
+
+			if(req.getParameter("board_no") != null) {
+				bdto.setSuper_no(Integer.parseInt(req.getParameter("board_no")));
+			}
 			
 			BoardDao bdao = new BoardDao();
 			int board_no = bdao.getSequence();//번호 먼저 추출
-			bdto.setBoard_no(board_no);//번호를 설정한 뒤
+			bdto.setBoard_no(board_no);//들어갈 번호를 설정한 뒤
 			bdao.write(bdto);//등록
 			
 			resp.sendRedirect("content.jsp?board_no="+board_no);

@@ -154,7 +154,6 @@
 									%>
 									수정 | 
 									<a href="reply_delete.do?reply_no=<%=rdto.getReply_no()%>&reply_origin=<%=board_no%>">
-									
 									삭제
 									</a>
 									<%} %>
@@ -188,7 +187,9 @@
 					<input type="button" value="글쓰기">
 					</a>
 					
+					<a href="write.jsp?board_no=<%=board_no%>">
 					<input type="button" value="답글">
+					</a>
 					
 					<%if(isAdmin || isMine){ %>
 					<!-- 관리자이거나 내 글인 경우만 수정/삭제 버튼을 표시 -->
