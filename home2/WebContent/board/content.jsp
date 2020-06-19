@@ -1,3 +1,6 @@
+<%@page import="home.beans.dto.ReplyDto"%>
+<%@page import="java.util.List"%>
+<%@page import="home.beans.dao.ReplyDao"%>
 <%@page import="java.util.HashSet"%>
 <%@page import="java.util.Set"%>
 <%@page import="home.beans.dto.MemberDto"%>
@@ -56,6 +59,13 @@
 	
 	// - 내글 : 게시글(bdto)의 작성자와 로그인 된 사용자(user)의 아이디가 같아야 함
 	boolean isMine = user.getMember_id().equals(bdto.getBoard_writer());
+	
+	
+	////////////////////////////////////////////////////////////////
+	// 댓글 목록을 구해오는 코드
+	////////////////////////////////////////////////////////////////
+	ReplyDao rdao = new ReplyDao();
+	List<ReplyDto> replyList = rdao.getList(board_no); 
 %>     
 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -113,16 +123,44 @@
 					
 					<table width="99%">
 						<tbody>
+							<%for(ReplyDto rdto : replyList){ %>
 							<tr>
 								<td>
-									<div>작성자</div>
-									<div>내용</div>
-									<div>작성일시</div>
+									<div>
+										<%=rdto.getReply_writer()%>
+										
+										<!-- 게시글 작성자인 경우 추가로 표시 -->
+										<%
+// 											boolean isWriter = 게시글작성자 존재 && 댓글작성자 존재 && 두 작성자 일치;
+											boolean isWriter = bdto.getBoard_writer() != null;
+											isWriter = isWriter && rdto.getReply_writer() != null;
+											isWriter = isWriter && bdto.getBoard_writer().equals(rdto.getReply_writer());
+											if(isWriter){
+										%>
+										<font color="red">(작성자)</font>
+										<%} %>
+									</div>
+									<div><%=rdto.getReply_content()%></div>
+									<div><%=rdto.getReply_date()%></div>
 								</td>
 								<td width="15%">
-									수정 | 삭제
+									<!-- 
+										수정 삭제 버튼은 "내 댓글" 이거나 "관리자" 인 경우만 표시
+									 -->
+									<%
+// 										boolean isMyReply = 내 아이디가 작성자와 같은 경우;
+										boolean isMyReply = user.getMember_id().equals(rdto.getReply_writer());
+										if(isAdmin || isMyReply){
+									%>
+									수정 | 
+									<a href="reply_delete.do?reply_no=<%=rdto.getReply_no()%>&reply_origin=<%=board_no%>">
+									
+									삭제
+									</a>
+									<%} %>
 								</td>
 							</tr>
+							<%} %>
 						</tbody>
 					</table>
 					
@@ -132,8 +170,9 @@
 			<!-- 댓글 작성 영역 -->
 			<tr>
 				<td align="right">
-					<form action="/board/reply_insert.do" method="post">
-						<textarea name="?" rows="4" cols="80" placeholder="댓글 작성"></textarea>
+					<form action="reply_insert.do" method="post">
+						<input type="hidden" name="reply_origin" value="<%=board_no%>">
+						<textarea name="reply_content" rows="4" cols="80" placeholder="댓글 작성"></textarea>
 						<br>
 						<input type="submit" value="등록">
 					</form>

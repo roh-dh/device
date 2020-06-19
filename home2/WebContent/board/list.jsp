@@ -56,9 +56,24 @@
 			<tr>
 				<td><%=bdto.getBoard_no()%></td>
 				<td align="left">
+				
+					<%if(bdto.getBoard_head() != null){ %>
+						<!-- 말머리는 있을 경우만 출력 -->
+						<font color="gray">
+						[<%=bdto.getBoard_head()%>]
+						</font>
+					<%} %>
+					
+					<!-- 게시글 제목 -->
 					<a href="content.jsp?board_no=<%=bdto.getBoard_no()%>">
 						<%=bdto.getBoard_title()%>
 					</a>
+					
+					<%if(bdto.getBoard_replycount() > 0){ %>
+					<!-- 댓글 개수를 출력(있을 경우만) -->
+					[<%=bdto.getBoard_replycount()%>]
+					<%} %>
+					
 				</td>
 				<td>
 					<%if(bdto.getBoard_writer() != null){ %>

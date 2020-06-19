@@ -20,6 +20,8 @@ public class BoardDto {
 		this.setBoard_writer(rs.getString("board_writer"));
 		this.setBoard_date(rs.getString("board_date"));
 		this.setBoard_read(rs.getInt("board_read"));
+		//추가된 항목에 대한 코드도 작성
+		this.setBoard_replycount(rs.getInt("board_replycount"));
 	}
 	public int getBoard_no() {
 		return board_no;
@@ -87,5 +89,14 @@ public class BoardDto {
 		else {//아니라면
 			return getBoard_day();
 		}
+	}
+	
+//	추가된 항목에 대한 변수와 setter/getter 추가
+	private int board_replycount;
+	public int getBoard_replycount() {
+		return board_replycount;
+	}
+	public void setBoard_replycount(int board_replycount) {
+		this.board_replycount = board_replycount;
 	}
 }

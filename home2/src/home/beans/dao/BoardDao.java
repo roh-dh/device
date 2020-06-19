@@ -16,21 +16,21 @@ import home.beans.dto.BoardDto;
 
 public class BoardDao {
 	
-	//context.mxl에서 관리하는 자원 객체를 참조할 수 있도록 연결 코드 구현
-	private static DataSource src; //리모컨 선언
+	//context.xml에서 관리하는 자원 객체를 참조할 수 있도록 연결 코드 구현
+	private static DataSource src;//리모컨 선언
 	
 	//static 변수의 초기화가 복잡할 경우에 사용할 수 있는 static 전용 구문
 	static {
-		//src = context.xml에서 관리하는 자원의 정보
 		try {
+			//src = context.xml에서 관리하는 자원의 정보;
 			Context ctx = new InitialContext();//탐색 도구
-			Context env = (Context)ctx.lookup("java:/comp/env");//context 설정 탐색 (리소스 이름앞에 붙는 접두사)
-			src = (DataSource) env.lookup("jdbc/oracle"); //Context.xml에서 있는 name을 불러옴
+			Context env = (Context) ctx.lookup("java:/comp/env");//Context 설정 탐색
+			src = (DataSource) env.lookup("jdbc/oracle");
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
 	}
-		
+	
 	
 	//연결 메소드
 	public Connection getConnection() throws Exception {
@@ -38,7 +38,6 @@ public class BoardDao {
 //		return DriverManager.getConnection(
 //				"jdbc:oracle:thin:@localhost:1521:xe", "c##kh", "c##kh");
 		return src.getConnection();
-
 	}
 	
 	//목록 메소드
@@ -181,6 +180,28 @@ public class BoardDao {
 		ps.setString(2, bdto.getBoard_title());
 		ps.setString(3, bdto.getBoard_content());
 		ps.setInt(4, bdto.getBoard_no());
+		ps.execute();
+		
+		con.close();
+	}
+	
+	//댓글 개수 카운트
+	//- 1번글의 댓글 개수를 알아내라!
+	//- SELECT count(*) FROM reply WHERE reply_origin = 1
+	//- 1번글의 댓글 개수를 5개로 변경해라!
+	//- UPDATE board SET board_replycount = 5 WHERE board_no = 1
+	//- 위의 두 구문을 합쳐서 실행하도록 구현
+	public void editReplycount(int board_no) throws Exception {
+		Connection con = getConnection();
+		
+		String sql = "UPDATE board "
+							+ "SET board_replycount = ("
+								+ "SELECT count(*) FROM reply WHERE reply_origin = ?"
+							+ ") "
+							+ "WHERE board_no = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, board_no);
+		ps.setInt(2, board_no);
 		ps.execute();
 		
 		con.close();
