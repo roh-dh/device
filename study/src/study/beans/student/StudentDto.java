@@ -1,13 +1,12 @@
 package study.beans.student;
 
 public class StudentDto {
+	
 	private int student_no;
 	private String student_name;
 	private int student_score;
 	private String student_create;
-	public StudentDto() {
-		super();
-	}
+	
 	public int getStudent_no() {
 		return student_no;
 	}
@@ -32,6 +31,7 @@ public class StudentDto {
 	public void setStudent_create(String student_create) {
 		this.student_create = student_create;
 	}
-	
-	
+	public StudentDto() {
+		super();
+	}
 }

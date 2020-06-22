@@ -6,6 +6,7 @@
 <%
 	//학생 상세정보 : student_no 를 받아서 Database 조회를 수행한 뒤 출력
 	int student_no = Integer.parseInt(request.getParameter("student_no"));
+
 	StudentDao sdao = new StudentDao();
 	StudentDto sdto = sdao.get(student_no);
 %>    
@@ -49,3 +50,7 @@
 	
 </body>
 </html>
+
+
+
+

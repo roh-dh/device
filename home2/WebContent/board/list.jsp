@@ -20,21 +20,91 @@
 	
 	boolean isSearch = type != null && keyword != null;
 	
+	////////////////////////////////////////////////////////////
+	// 페이지 계산 코드
+	////////////////////////////////////////////////////////////
+	int pageSize = 10;//한 페이지에 표시할 데이터 개수
+	
+	//page 번호를 계산하기 위한 코드
+	// - 이상한 값은 전부다 1로 변경
+	// - 멀쩡한 값은 그대로 숫자로 변환
+	String pageStr = request.getParameter("page");
+	int pageNo;
+	try{
+		pageNo = Integer.parseInt(pageStr);
+		if(pageNo <= 0){
+			throw new Exception();
+		}
+	}
+	catch(Exception e){ 
+		pageNo = 1;
+	}
+	
+	//시작 글 순서와 종료 글 순서를 계산
+	int finish = pageNo * pageSize;
+	int start = finish - (pageSize - 1);
+	
+	//////////////////////////////////////////////////////////////////
+	// 페이지 네비게이터 계산 코드
+	//////////////////////////////////////////////////////////////////
+	int blockSize = 10;//이 페이지에는 네비게이터 블록을 10개씩 배치하겠다!
+	int startBlock = (pageNo - 1) / blockSize * blockSize + 1;
+	int finishBlock = startBlock + blockSize - 1;
+	
 	BoardDao bdao = new BoardDao();
+	//(주의!)다음 버튼의 경우 계산을 통하여 페이지 개수를 구해야 출력 여부 판단이 가능
+	// int count = 목록개수 or 검색개수;
+
+	int count;
+	if(isSearch){//검색
+		count = bdao.getCount(type, keyword);
+	}
+	else{//목록
+		count = bdao.getCount();
+	}
+	int pageCount = (count+pageSize-1) /pageSize;
+	//만약 finishBlock이 pageCount보다 크다면 수정해야 한다.
+	if(finishBlock>pageCount){
+		finishBlock = pageCount;
+	}
+	
+	
+	
 // 	List<BoardDto> list = 목록 or 검색;
 	List<BoardDto> list;
 	if(isSearch){
-		list = bdao.search(type, keyword); 
+		list = bdao.search(type, keyword, start, finish); 
 	}
 	else{
-		list = bdao.getList();
+		list = bdao.getList(start, finish); 
 	}
+	
 %> 
  
  
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="center">
+	
+	<!-- 계산한 데이터를 확인하기 위해 출력 -->
+	<h3>
+		type = <%=type%>,
+		keyword = <%=keyword%>,
+		isSearch = <%=isSearch%>
+	</h3>
+	<h3>
+		pageStr = <%=pageStr%>, 
+		pageNo = <%=pageNo%>,
+		start = <%=start%>,
+		finish = <%=finish%>	
+	</h3>
+	<h3>
+		count = <%=count %>
+		pageCount =<%=pageCount %>
+		startBlock = <%=startBlock%>,
+		finishBlock = <%=finishBlock%>
+		
+	</h3>
 	
 	<!-- 제목 -->
 	<h2>자유 게시판</h2>
@@ -60,6 +130,18 @@
 			<tr>
 				<td><%=bdto.getBoard_no()%></td>
 				<td align="left">
+				
+					<!-- 
+						답글은 띄어쓰기 구현
+						- 답글인 경우는 super_no > 0 , depth > 0 
+					-->
+					<%if(bdto.getDepth() > 0){ %>
+						<%for(int i=0; i < bdto.getDepth(); i++){ %>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+						<%} %>
+						<img src="<%=request.getContextPath()%>/image/reply.png"
+							width="20" height="15">
+					<%} %>
 				
 					<%if(bdto.getBoard_head() != null){ %>
 						<!-- 말머리는 있을 경우만 출력 -->
@@ -109,11 +191,47 @@
 	</table>
 	
 	<!-- 네비게이터 -->
-	<h6>
-	[이전]
-	1 2 3 4 5 6 7 8 9 10
-	[다음]
-	</h6>
+	<h4>
+	
+	<!-- 
+		이전 버튼을 누르면 startBlock - 1 에 해당하는 페이지로 이동해야 한다
+		(주의) startBlock이 1인 경우에는 출력하지 않는다
+	 -->
+	<%if(startBlock > 1){ %>
+	
+		<%if(!isSearch){ %> 
+			<a href="list.jsp?page=<%=startBlock-1%>">[이전]</a>
+		<%}else{ %>
+			<a href="list.jsp?page=<%=startBlock-1%>&type=<%=type%>&keyword=<%=keyword%>">[이전]</a>
+		<%} %>
+		
+	<%} %>
+	
+	<!-- 
+		이동 숫자에 반복문을 적용 
+		범위는 startBlock부터 finishBlock까지로 설정(상단에서 계산을 미리 해두었음)
+	-->
+	<%for(int i=startBlock; i <= finishBlock; i++){ %>
+		<%if(!isSearch){ %>
+		<!-- 목록일 경우 페이지 번호만 전달 -->
+		<a href="list.jsp?page=<%=i%>"><%=i%></a>
+		<%}else{ %>
+		<!-- 검색일 경우 페이지 번호와 검색 분류(type), 검색어(keyword)를 전달 -->
+		<a href="list.jsp?page=<%=i%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>
+		<%} %>
+	<%} %>
+	
+	<!-- 
+		다음 버튼을 누르면 finishBlock + 1 에 해당하는 페이지로 이동해야 한다
+	 -->
+
+	<%if(!isSearch){ %> 
+	<a href="list.jsp?page=<%=finishBlock + 1%>">[다음]</a>
+	<%}else{ %>
+	<a href="list.jsp?page=<%=finishBlock + 1%>&type=<%=type%>&keyword=<%=keyword%>">[다음]</a>
+	<%} %>
+
+	</h4>
 	
 	<!-- 검색창 -->
 	<form action="list.jsp" method="get">
@@ -132,3 +250,8 @@
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
+
+
+
+
+

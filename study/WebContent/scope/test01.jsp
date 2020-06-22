@@ -8,6 +8,7 @@
 	// - pageContext, request, session, application 4종류가 존재한다.
 	// - 중요한 것은 session과 application의 차이를 이해하는 것!
 	int a = 10;
+
 	//Q1) session 이 무엇인가? 데이터는 어떻게 저장하는가?
 	//session.setAttribute("이름", 저장할 데이터);
 	//(중요) 저장되는 데이터는 무조건 Object 형태로 저장(업캐스팅)
@@ -20,3 +21,9 @@
 <h2>c = <%=application.getAttribute("c")%></h2>
 
 <h2>session id = <%=session.getId()%></h2>
+
+
+
+
+
+
