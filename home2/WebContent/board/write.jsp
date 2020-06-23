@@ -33,7 +33,8 @@
 				<tr>
 					<th>말머리</th>
 					<td>
-						<!-- 말머리는 select로 구현 --> <select name="board_head">
+						<!-- 말머리는 select로 구현 --> 
+						<select name="board_head">
 							<option value="">말머리 선택</option>
 							<option value="정보">정보</option>
 							<option value="공지">공지</option>
@@ -44,7 +45,8 @@
 				<tr>
 					<th>제목</th>
 					<td>
-						<!-- 제목은 일반 입력창으로 구현 --> <input type="text" name="board_title"
+						<!-- 제목은 일반 입력창으로 구현 --> 
+						<input type="text" name="board_title"
 						size="70" required>
 					</td>
 				</tr>

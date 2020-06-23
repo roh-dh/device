@@ -26,7 +26,7 @@ public class BoardWriteWithFileServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-//			목표 : multipart/form-data 방식으로 전소오디는 게시글 +파일을 해석 및 저장
+//			목표 : multipart/form-data 방식으로 전송되는 게시글 +파일을 해석 및 저장
 
 //			1.해석을 위한 도구를 생성할 옵션		
 			String charset ="UTF-8"; //해석할 인코딩 방식
@@ -48,7 +48,11 @@ public class BoardWriteWithFileServlet extends HttpServlet {
 			
 //			5.해석한 데이터에서 필요한 정보들을 추출
 			BoardDto bdto = new BoardDto();
-			bdto.setBoard_head(map.get("board_head").get(0).getString());
+			bdto.setBoard_head(map.get("board_head").get(0).getString()); 
+			// jsp에서 input태그에 board_head를 name으로 받았잖아. 그래서 map.get("board_head")인거고. 
+			//그거를 꺼내오는건데  List로 받아온 데이터가 1개밖에 없어서 get(0) List의 가장앞번호인 0을 넣은것.
+			//
+			
 			bdto.setBoard_title(map.get("board_title").get(0).getString());
 			bdto.setBoard_content(map.get("board_content").get(0).getString());
 
