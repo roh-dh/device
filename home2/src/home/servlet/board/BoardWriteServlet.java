@@ -12,7 +12,7 @@ import home.beans.dao.BoardDao;
 import home.beans.dto.BoardDto;
 import home.beans.dto.MemberDto;
 
-@WebServlet(urlPatterns = "/board/write.do")
+//@WebServlet(urlPatterns = "/board/write.do")
 public class BoardWriteServlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

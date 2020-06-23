@@ -7,7 +7,7 @@
 	<h2>관리자 화면</h2>
 	
 	<h4><a href="list.jsp">회원 검색</a></h4>
-	<h4><a href="#">통계 보기</a></h4>
+	<h4><a href="daily_count.jsp">통계 보기</a></h4>
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>    
