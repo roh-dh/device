@@ -1,0 +1,58 @@
+/*
+공용 스타일 파일(css 파일)
+-html에서 사용할 수 있는 공용 디자인 코드를 작성
+-style 태그 내부에 작성하는 내용만 기입
+*/
+
+@charset"UTF-8";
+
+
+/*
+공통적으로 적용될 스타일
+-box-sizing: 폭 계산과 관련된 옵션
+-font-family : 페이지 전체 글꼴과 관련된 옵션
+*/
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/*
+이미지 관련 스타일
+- 기본 스타일 .img
+- 확장 스타일 4가지 분류
+    -img-border: 마우스가 올라가면 테두리가 생성
+    -img-shadow : 마우스가 올라가면 그림자가 생성
+    -img-trasparent : 마우스가 올라가면 이미지 선명
+    -img-circle : 이미지가 원형으로 처리되도록 구현
+    -img-round : 이미지가 둥근 모서리를 갇도록 구현
+*/
+.img {}
+
+.img-border {
+    border: 1px soild transparent;
+}
+
+.img-border:hover {
+    border-color: black;
+}
+
+.img-shadow:hover {
+    box-shadow: 0px 0px 3px 2px #333;
+}
+
+.img-transparent {
+    opacity: 0.6;
+}
+
+.img-transparent:hover {
+    opacity: 1;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.img-round {
+    border-radius: 5px;
+}

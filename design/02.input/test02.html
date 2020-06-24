@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>쿠팡 로그인</title>
+    <style>
+        .* {
+            box-sizing: content-box
+        }
+
+        .login-wrap {
+            width: 460px;
+            text-align: center;
+            margin: 0px auto;
+        }
+
+        .login-id {
+            width: 100%;
+
+        }
+
+        /*태그 4개를 한 번에 부른다 */
+        .form-input {
+            width: 100%;
+            margin: 10px 0px;
+
+            font-size: 15px;
+            padding: 10px;
+            padding-left: 50px;
+        }
+
+        .login-id {
+            background-image: url(../image/email.png);
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: 5px 4px
+        }
+
+        .login-pw {
+            background-image: url(../image/lock.png);
+            background-size: 40px;
+            background-repeat: no-repeat;
+            background-position: 1px
+        }
+
+        .login-submit {
+            color: white;
+            background-color: dodgerblue;
+            border-width: 1px;
+            border-style: solid;
+            border-color: black;
+        }
+
+        .login-button {
+            background-color: white;
+            border-width: 1px;
+            border-style: solid;
+            border-color: black;
+        }
+
+        .login-checkbox-wrap {
+            text-align: left;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="login-wrap">
+
+        <!--제목-->
+        <h1 class="logo">Coupang</h1>
+
+        <!--폼-->
+        <form action="?" method="post">
+            <!--아이디 입력창-->
+            <input class="form-input login-id" type="text" name="member_id" placeholder="아이디(이메일)" required>
+
+            <!--비밀번호 입력창-->
+            <input class="form-input login-pw" type="password" name="member_pw" placeholder="비밀번호" required>
+
+            <!--
+    자동로그인 선택 체크박스
+    - 여러 항목으로 구성된 경우 div 등으로 감싸 한덩어리로 묶어준다
+    -->
+            <div class="login-checkbox-wrap">
+                <input class="login-checkbox" type="checkbox" name="autologin">자동로그인
+            </div>
+
+            <!--로그인 버튼-->
+            <input class="form-input login-submit" type="submit" value="로그인">
+        </form>
+
+        <hr>
+
+        <!--회원가입 버튼-->
+        <input class="form-input login-button" type="button" value="회원가입">
+
+        <!-- 쿠팡 저작권 글자: 글자는 무조건 태그 내에 사용 -->
+        <div class="login-copyright">
+            &copy; Coupang corp. All right reserved.
+        </div>
+    </div>
+</body>
+
+</html>
