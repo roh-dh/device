@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid System</title>
+    <link rel="stylesheet" type="text/css" href="../base.css">
+    <style>
+        /* 브라우저마다 다른 설정들을 초기화*/
+        html, body{
+            padding:0;        /*기본적으로 설정된 여백 없앰*/
+            margin:0;
+        }
+        /*test 상태일 때 테두리를 설정*/
+        body[test] main,
+        body[test] header, 
+        body[test] nav, 
+        body[test] section, 
+        body[test] footer,
+        body[test] article, 
+        body[test] div,
+        body[test] span,
+        body[test] p,
+        body[test] label, 
+        body[test] aside{
+            border:1px dotted black;
+        }        
+    </style>
+</head>
+<body test>
+   <main>
+        <header>헤더</header>
+        <nav>메뉴</nav>
+        <section>섹션</section>
+        <footer>푸터</footer>
+    </main>
+</body>
+</html>

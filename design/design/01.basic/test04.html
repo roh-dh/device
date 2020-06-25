@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>선택자(selector)</title>
+    <style>
+        /* h2라는 태그 전체의 디자인*/
+        h2 {
+            color: gray;
+        }
+
+        /*h2라는 태그 중에서 첫번째에 적용할 디자인*/
+        h2:first-child {
+            /*h2이하를 '선택자,selector'라고함*/
+            background-color: yellow;
+        }
+
+        /* h2의 마지막 태그의 배경을 검정, 글자를 흰색으로 설정*/
+
+        h2:last-child {
+            color: white;
+            background-color: black;
+        }
+
+        /*
+        h2 태그 중에서 중간에 있는것을 선택하고 싶은 경우
+        nth-child(n)
+            -순서는 1부터 시작 (0번 없음에 유의!!)
+            -패턴을 지정할 수 있다 n 2n 3n ... n번째마다..
+                - 2n: 짝수
+                - 2n-1: 홀수
+        */
+        h2:nth-child(2n) {
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+    <h2>Hello Web Design</h2>
+</body>
+
+</html>

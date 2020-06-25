@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>테이블 스타일링</title>
+    <link rel="stylesheet" type="text/css" href="../base.css">
+    <style>
+        /* 
+            rem 은 글자 1개의 높이에 해당하는 크기
+        */
+
+        /*
+            그냥 th, td가 아니라
+            .table 안에 있는 th, td로 범위를 제한하여 사용!
+            - 다른 스타일과 충돌 없이 사용이 가능
+        
+            [1] 직계 자식 태그만 선택( > )
+            .table > thead > tr > th : .table 바로 밑의 thead 바로 밑의... 라는 뜻
+        
+            [2] 후손 태그 전체 선택
+            .table th : .table 안에 있는 모든 th
+        */
+        .table {
+            width: 100%;
+        }
+
+        .table>thead>tr>th,
+        .table>thead>tr>td,
+        .table>tbody>tr>th,
+        .table>tbody>tr>td,
+        .table>tfoot>tr>th,
+        .table>tfoot>tr>td {
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        /* 확장 스타일 1번 : .table-border 로 테두리를 부여 */
+        .table.table-border {
+            /* 테이블에 테두리를 부여*/
+            border: 1px solid black;
+            /* 테두리 병합 */
+            border-collapse: collapse;
+        }
+
+        .table.table-border>thead>tr>th,
+        .table.table-border>thead>tr>td,
+        .table.table-border>tbody>tr>th,
+        .table.table-border>tbody>tr>td,
+        .table.table-border>tfoot>tr>th,
+        .table.table-border>tfoot>tr>td {
+            /* 칸에 테두리를 부여 */
+            border: 1px solid black;
+        }
+
+        /* 확장 스타일 2번 : .table-stripe 로 줄무늬 부여 */
+        .table.table-stripe>tbody>tr:nth-child(2n) {
+            /* RGB Hex String */
+            background-color: #ffeaa7;
+        }
+
+        .table.table-stripe>thead>tr {
+            background-color: #fdcb6e;
+        }
+
+        /* 확장 스타일 3번 : .table-sideopen 으로 옆트임 테이블 구현 */
+        .table.table-sideopen {
+            border-top: 3px solid black;
+            border-bottom: 3px solid black;
+            border-collapse: collapse;
+        }
+
+        .table.table-sideopen>tbody {
+            border-top: 3px solid black;
+            border-bottom: 3px solid black;
+        }
+
+        .table.table-sideopen>tbody>tr {
+            border-bottom: 1px solid black;
+        }
+
+        /* 확장 스타일 4번 : .table-hover 로 마우스 감지 테이블 구현 */
+        .table.table-hover>tbody>tr:hover {
+            background-color: #dfe6e9;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div style="width:500px;">
+
+        <h2>자유 게시판</h2>
+
+        <table class="table table-border table-hover">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                    <th>조회수</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3</td>
+                    <td>테스트 제목3</td>
+                    <td>작성자3</td>
+                    <td>YYYY-MM-DD</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>테스트 제목2</td>
+                    <td>작성자2</td>
+                    <td>YYYY-MM-DD</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>테스트 제목1</td>
+                    <td>작성자1</td>
+                    <td>YYYY-MM-DD</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+
+</html>

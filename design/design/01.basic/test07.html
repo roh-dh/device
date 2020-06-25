@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>클래스 선택자</title>
+    <style>
+        /*모든 대상에게 스타일을 적용*/
+        * {
+            box-sizng: border-box;
+        }
+
+        /*태그명이 아닌 클래스명으로 선택하여 디자인 적용*/
+        /* .login-wrap은 class="login-wrap"이란느 뜻*/
+        .login-wrap {
+            width: 300px;
+            text-align: center;
+            margin: 0px auto;
+        }
+
+        .login-header {
+            color: limegreen;
+        }
+
+        /*여러개의 영역에 동시에 적용*/
+        .login-input,
+        .login-button {
+            width: 100%;
+            margin: 5px 0px;
+            padding: 10px;
+        }
+
+        .login-input {}
+
+        .login-button {
+            background-color: limegreen;
+            color: white;
+            border: 1px solid limegreen;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="login-wrap">
+        <h1 class="login-header">NAVER</h1>
+        <input class="login-input" type="text">
+        <input class="login-input" type="password">
+        <input class="login-button" type="submit" value="로그인">
+    </div>
+</body>
+
+</html>

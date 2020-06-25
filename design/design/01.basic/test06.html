@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            text-align: center;
+            margin: 0px auto;
+            /*마진 좌우를 auto로 줘 가운데 위치 */
+            margin-top: 20px auto;
+        }
+
+        h1 {
+            color: limegreen;
+            font-weight: 900;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+
+            margin: 10px 0px;
+            padding: 5px;
+        }
+
+        input:nth-child(3) {
+            background-color: limegreen;
+            color: white;
+            border: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>NAVER</h1>
+        <form action="?" method="post">
+            <input type="text" placeholder="아이디">
+            <input type="password" placeholder="비밀번호">
+            <input type="submit" value="로그인">
+        </form>
+    </div>
+</body>
+
+</html>
