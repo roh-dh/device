@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Font 배우기</title>
 </head>
 <body>
 	<font size="1" color="red">가나다라마바사1234567</font> <br>
@@ -14,6 +14,9 @@
 	<font size="5" color="blue">가나다라마바사1234567</font> <br>
 	<font size="6" color="darkblue">가나다라마바사1234567</font> <br>
 	<font size="7" color="purple">가나다라마바사1234567</font> <br>
-
 </body>
 </html>
+
+
+
+

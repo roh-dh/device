@@ -3,11 +3,14 @@
 <%@page import="study.beans.student.StudentDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-String q =request.getParameter("q");
+<!-- 목표 : test01.jsp에서 전송한 데이터를 수신하여 검색 결과를 출력(목록) -->
 
-StudentDao sdao = new StudentDao();
-List<StudentDto> list = sdao.search(q);
+<%
+	//jsp에서는 HttpServletRequest를 request라는 내장객체로 관리한다.
+	String q = request.getParameter("q");
+	
+	StudentDao sdao = new StudentDao();
+	List<StudentDto> list = sdao.search(q);
 %>
 
 <!DOCTYPE html>
@@ -19,6 +22,9 @@ List<StudentDto> list = sdao.search(q);
 <body>
 	<div align="center">
 		<h1>학생 목록</h1>
+		
+		<h5>검색 결과는 총 <%=list.size()%>개입니다</h5>
+		
 		<table border="1">
 			<thead>
 				<tr>
@@ -42,4 +48,8 @@ List<StudentDto> list = sdao.search(q);
 	</div>
 </body>
 </html>
+
+
+
+
 

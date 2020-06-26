@@ -1,4 +1,3 @@
-  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -14,3 +13,7 @@
 <%-- 	<h3>Hello~ <%out.print(i);%> </h3> --%>
 	<h3>Hello~ <%= i %> </h3>
 <%}%>
+
+
+
+

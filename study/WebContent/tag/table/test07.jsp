@@ -1,7 +1,6 @@
-
 <%@page import="study.beans.student.StudentDto"%>
 <%@page import="java.util.List"%>
-<%@page import="study.beans.student.StudentDao"%>
+<%@ page import="study.beans.student.StudentDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- 
@@ -38,7 +37,12 @@
 				<%for(StudentDto sdto : list){ %>
 				<tr>
 					<td><%=sdto.getStudent_no()%></td>
-					<td><%=sdto.getStudent_name()%></td>
+					<td>
+<!-- 						<a href="../form/test05.jsp"> -->
+						<a href="/study/tag/form/test05.jsp?student_no=<%=sdto.getStudent_no()%>">
+							<%=sdto.getStudent_name()%>
+						</a>
+					</td>
 					<td><%=sdto.getStudent_score()%></td>
 					<td><%=sdto.getStudent_create()%></td>
 				</tr>
@@ -49,3 +53,6 @@
 	
 </body>
 </html>
+
+
+
