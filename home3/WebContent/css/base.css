@@ -393,12 +393,10 @@ article h6{
 	width:auto;
 }
 
-
-
-/* 정렬과 관련된 스타일 */
-.left {text-align: left;}
-.center {text-align: center;}
-.right {text-align: right;}
+/* 정렬과 관련된 스타일 : 기존의 스타일과 충돌이 발생할 경우 먼저 적용되도록 중요하다고 표시! */
+.left {text-align: left !important;}
+.center {text-align: center !important;}
+.right {text-align: right !important;}
 
 /* textarea는 수직으로만 크기조정이 가능하도록 구현 */
 textarea.form-input {
@@ -406,9 +404,51 @@ textarea.form-input {
 }
 
 
+/*
+    pagination 스타일
+*/
+.pagination a {
+    color:gray;
+    text-decoration: none;
+    display: inline-block;
+    padding:0.5rem;
+    min-width: 2.5rem;
+    text-align: center;
+    border:1px solid transparent;
+}
+.pagination a:hover,/*마우스 올라감*/
+.pagination .on {/*활성화 */
+    border:1px solid gray;
+    color:red;
+}
 
-
-
+/*
+    float 영역 스타일링
+    - .float-box 가 끝나면 반드시 clear:both를 실행!
+*/
+.float-box::after{
+    content:"";
+    display: block;
+    clear:both;
+}
+/*
+    float 확장 스타일링
+    - .float-left로 왼쪽부터 배치되도록 구현
+    - .float-right로 오른쪽부터 배치되도록 구현
+    - 내부 영역도 자체적으로 left, right를 선택하도록 구현
+*/
+.float-box.float-left > * {
+    float:left;
+}
+.float-box.float-right > * {
+    float:right;
+}
+.float-box > .float-left {
+    float:left;
+}
+.float-box > .float-right {
+    float:right;
+}
 
 
 
