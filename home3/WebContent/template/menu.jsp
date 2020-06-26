@@ -17,29 +17,23 @@
 	boolean isLogin = mdto != null;
 %>
 
+	<ul class="menu">  
+<%if(isLogin&& mdto.getMember_auth().equals("관리자")){%>
 
+		<li><a href="<%=rootPath%>/index.jsp">HOME</a></li>
+		<li><a href="<%=rootPath%>/member/logout.do">LOGOUT</a></li>
+		<li><a href="<%=rootPath%>/member/info.jsp">INFORMATION</a></li>			
+		<li><a href="<%=rootPath%>/admin/home.jsp">ADMIN</a></li>
 
-    <ul class="menu">        
-<%if(isLogin){ %>
-	<!-- 로그인 상태일 경우 -->
-	
+<%}else if(isLogin){ %>
 		<li><a href="<%=rootPath%>/index.jsp">HOME</a></li>
 		<li><a href="<%=rootPath%>/member/logout.do">LOGOUT</a></li>
 		<li><a href="<%=rootPath%>/member/info.jsp">INFORMATION</a></li>
-	
-	<!-- 로그인 된 사용자 중에서도 "관리자" 인 경우만 나와야 하는 메뉴 -->
-	<%if(mdto.getMember_auth().equals("관리자")){ %>
-	
-		<li><a href="<%=rootPath%>/admin/home.jsp">ADMIN</a></li>
-	
-	<%} %>
-	
-	<li><a href="<%=rootPath%>/board/list.jsp">BOARD</a></li>
-<%}else{ %>
+<%}else{%>
 	<!-- 로그아웃 상태일 경우 -->
 	<li><a href="<%=rootPath%>/index.jsp">HOME</a></li>
 	<li><a href="<%=rootPath%>/member/join.jsp">JOIN</a><li>
 	<li><a href="<%=rootPath%>/member/login.jsp">LOGIN</a></li>
 	<li><a href="<%=rootPath%>/board/list.jsp">BOARD</a></li>
 <%} %>
-	 </ul>
+ 

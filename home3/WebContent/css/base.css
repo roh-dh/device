@@ -378,6 +378,38 @@ article h6{
     background-color: #57606f;
 }
 
+/*
+입력창 확장 스타일
+- form-input-image : 좌측에 그림이 들어갈 입력창
+- form-inline : 폭 100%를 사용하지 않겠다!
+*/
+
+.form-input.form-input-image {
+    padding-left: 3rem;
+}
+
+.form-input.form-inline,
+.form-btn.form-inline {
+	width:auto;
+}
+
+
+
+/* 정렬과 관련된 스타일 */
+.left {text-align: left;}
+.center {text-align: center;}
+.right {text-align: right;}
+
+/* textarea는 수직으로만 크기조정이 가능하도록 구현 */
+textarea.form-input {
+	resize: vertical;	
+}
+
+
+
+
+
+
 
 
 

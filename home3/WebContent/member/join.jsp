@@ -3,23 +3,40 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+	<form action="join.do" method="post">
+	<article class="w-60">
+	<!--제목 -->
+	<div class="row">
+		<h2>회원 가입</h2>
+	</div>	
+	<!--아이디 입력창 -->
+	<div class="row"></div>
+		<input class="form-input" type="text" name="member_id" required placeholder="5~20자 영문 또는 숫자">
+	<!--비밀번호  -->
+	<div class="row"></div>
+	<!--닉네임  -->
+	<div class="row"></div>
+	<!--우편번호 및 찾기버튼  -->
+	<div class="row"></div>
+	<!--기본주소 -->
+	<div class="row"></div>
+	<!--상세주소  -->
+	<div class="row"></div>
+
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+</article>
 <div align="center">
 	
 	<h2>회원가입</h2>
 	
-<!-- 	<form action="/home/member/join.do"> -->
-	<!-- 
-		form을 만들 때에는 전송방식을 설정할 수 있다.
-		- GET : 주소를 이용하여 요청과 데이터 모두 전달하는 방식
-			- 장점 : 간편하게 사용이 가능하다
-			- 단점 : 길이 제한이 있다(256byte) , 주소창에 데이터가 노출된다
-			- 주로 간편한 select 등을 수행할 때 사용
-		- POST : 요청 바디(request body)에 데이터를 첨부하여 전달하는 방식
-			- 장점 : 길이 제한이 없다. 데이터가 주소창에 노출되지 않는다
-			- 단점 : 요청을 보내기 위해서 도구가 많이 필요하다(form 등), 한글과 같은 유니코드가 깨져서 저장된다
-			- 이 방식으로 전송한 데이터를 복구하기 위해서는 request.setCharacterEncoding() 명령이 필요
-			- 주로 등록과 같은 복잡한 데이터 전송에 사용
-	 -->
+
 	<form action="join.do" method="post">
 		<table border="0">
 			<tbody>
