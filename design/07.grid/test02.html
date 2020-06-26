@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Section을 구성하는 방법</title>
+    <link rel="stylesheet" type="text/css" href="../base.css">
+    <style>
+        main {
+            width:1000px;
+            margin:auto;
+        }
+        /* 
+            컨텐츠 영역에 대한 폭 제어 스타일 
+            - 모든 article은 가운데 정렬을 원칙으로 한다.
+            - 폭은 w-비율 형태의 class로 5단위로 지원한다.
+        */
+        article{
+            margin:auto;
+        }
+        article.w-100{ width:100%; }
+        article.w-95{ width:95%; }
+        article.w-90{ width:90%; }
+        article.w-85{ width:85%; }
+        article.w-80{ width:80%; }
+        article.w-75{ width:75%; }
+        article.w-70{ width:70%; }
+        article.w-65{ width:65%; }
+        article.w-60{ width:60%; }
+        article.w-55{ width:55%; }
+        article.w-50{ width:50%; }
+        article.w-45{ width:45%; }
+        article.w-40{ width:40%; }
+        article.w-35{ width:35%; }
+        article.w-30{ width:30%; }
+        article.w-25{ width:25%; }
+        article.w-20{ width:20%; }
+        article.w-15{ width:15%; }
+        article.w-10{ width:10%; }
+        
+        /*
+        컨텐츠 내부의 줄(row) 스타일
+        - 기본 간격을 10px로 설정(상하 margin)
+        */
+        article > div.row {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        /* 여백 설정이 필요할 때 사용할 수 있는 공간 */
+        div.row-empty {
+            height:20px;
+        }
+    </style>
+</head>
+<body test>
+    
+    <main>
+        <section>
+            <!-- 내용이 배치되기 전에 빈 공간(여백)을 설정 -->
+            <div class="row-empty"></div>
+            <div class="row-empty"></div>
+            
+            <!-- article은 컨텐츠의 폭을 제어하기 위한 영역 -->
+            <article class="w-50">
+                <div class="row">내용1</div>
+                <div class="row">내용2</div>
+                <div class="row">내용3</div>
+                <div class="row">내용4</div>
+                <div class="row">내용5</div>
+                <div class="row">내용6</div>
+                <div class="row">내용7</div>
+            </article>
+            
+            <!-- 내용이 배치된 후 빈 공간(여백)을 설정 -->
+            <div class="row-empty"></div>
+            <div class="row-empty"></div>
+            
+        </section>
+    </main>
+    
+</body>
+</html>
+
+
+
+
+

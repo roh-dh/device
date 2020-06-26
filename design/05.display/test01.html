@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display 속성</title>
+    <link rel="stylesheet" type="text/css" href="../base.css">
+    <style>
+        div{
+            display: inline;
+            width: 1000px;
+        }
+    
+        span {
+            width: 1000px;
+        }
+        
+        label{
+            width:1000px;
+        }
+        
+    </style>
+</head>
+<body>
+   <!--
+       display는 표시 속성
+       -태그마다 고유한 display 방식이 존재
+       - block 속성은 한 줄에 한 개만 출력
+           -bloick은 폭 설정이 가능
+       - inline 속성은 한 줄에 여러 개 출력 가능
+           -inline은 폭 설정이 불가능(자동으로 설정)
+           -inline-block은 폭 설정이 가능
+       - none 속성은 출력 하지 않음
+       
+       
+   -->
+   
+    <div>첫번째 DIV</div>
+    <div>첫번째 DIV</div>
+    <div>첫번째 DIV</div>
+    <!-- 
+      p 태그는 "문단"을 의미하는 태그
+      디자인보다 문서를 작성할 때 사용하며, block 속성이다
+    -->    
+    <p>첫번째 p 태그</p>
+    <p>두번째 p 태그</p>
+    <p>세번째 p 태그</p>
+
+   <!--
+       span은 태그는 "특정 요소"를 감싸는 태그
+       inline 형태이므로 문서의 모양을 파괴하지 않고
+       영역 설정이 가능하다.
+   -->
+   <span>첫번째 SPAN 태그</span>
+   <span>두번째 SPAN 태그</span>
+   <span>세번째 SPAN 태그</span>
+    
+    <p>
+        나는 지금 <span>피자</span>가 먹고 싶다
+    </p>
+
+    <!--
+        label 태그 : inline 영역(span과 동일)
+        - for 기능을 이용한 타겟 선택이 가능
+    -->   
+   
+    <label>첫 번째 label 태그</label>
+    <label>두 번째 label 태그</label>
+    <label>세 번째 label 태그</label>
+    
+    <hr>
+    
+    <!--
+        아이디는 무조건 한개만 부여가 가능하며,
+        페이지 내에서 중복하여 ID를 부여할 수 없다.
+        (식별기호의 성향이 강하다)
+    -->
+    
+    <input type="checkbox" id="agree">
+    <label for="agree">동의합니다.</label>    
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>여역 내부 구성요소 스타일링</title>
+    <link rel="stylesheet" type="text/css" href="../base.css">
+   <style>
+        main{
+            width:1000px;
+            margin:auto;
+        }
+       article h1,
+       article h2,
+       article h3,
+       article h4,
+       article h5,
+       article h6{
+           text-align: center;
+       }
+        /*
+       입력창 스타일
+       -form-input : 100% 크기의 입력창
+       */
+       
+       .form-input{
+           width:100%;
+           padding:0.5rem;
+           outline: none;/* 선택 시 자동 부여되는 테두리 제거*/
+           border: 2px solid black;
+       }
+       .form-input:focus{
+           border-color:skyblue;
+       }        
+       .form-btn {
+           background-color: #2f3542;
+           color:white;
+           cursor:pointer;
+       }
+       .form-btn:hover {
+           background-color: #57606f;
+       }
+    </style>
+</head >
+<body test>
+    
+    <main>
+        <header></header>
+        <nav></nav>
+        <section>
+           <div class="row empty"></div>
+                
+           
+<article class="w-35">
+                <div class="row">
+                    <h2>로그인</h2>
+                </div>
+                <div class="row">
+                    <input class="form-input" type="text" placeholder="아이디">
+                </div>
+                <div class="row">
+                    <input class="form-input" type="password" placeholder="비밀번호">
+                </div>
+                <div class="row">
+                    <input type="checkbox" id="save-id">
+                    <label for="save-id">아이디 기억하기</label>
+                </div>
+                <div class="row">
+                    <input class="form-btn" type="submit" value="로그인">
+                </div>
+                <div class="row">
+                    <a href="#">아이디가 기억나지 않습니다.</a>
+                </div>
+                <div class="row">
+                    <a href="#">비밀번호가 기억나지 않습니다.</a>
+                </div>
+            </article>
+
+
+           <div class="row empty"></div>
+                       
+        </section>
+        <footer></footer>
+    </main>
+</body>
+</html>

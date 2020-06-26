@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list를 이용한 2단 메뉴 만들기</title>
+    <link rel="stylesheet" type="text/css" href="../base.css">
+    <style>
+        /*
+        메뉴 스타일
+        - 메뉴와 같은 계층형 구조는 ul-li로 일반적으로 구현
+        - list-style : none; 으로 앞에 점을 제거
+        - ul이 가지고 있는 기본 padding, margin을 제거
+        */
+        .menu, .menu ul {
+        list-style: none;
+        padding:0;
+        margin:0;
+        background-color: black;
+        }
+        /* 1단계 메뉴는 우측으로 가야 하므로 inline-block 설정 */
+        .menu > li {
+        display: inline-block;
+        }
+
+        /* 모든 li는 relative 설정 */
+        .menu li {
+        position: relative;
+        padding:0.75rem;
+        width:150px;
+        text-align: center;
+        cursor:pointer;
+        }
+        /* 2단계 메뉴부터는 position을 absolute로 설정 */
+        /* .menu li > ul {*/
+        .menu > li ul {
+        position: absolute;
+        left:0; /* 기준과 왼쪽을 맞춰라 */
+        top:100%; /* 기준의 바닥에 시작점을 맞춰라 */
+        }
+
+        .menu li:hover {
+        background-color:gray;
+        }
+        /*menu의 링크는 스타일을 다르게 지정*/
+        /* .menu > li > a { */
+        .menu a {
+        color:white;
+        text-decoration: none;
+        }
+        .menu li:hover > a {
+        color:#dfe4ea;
+        }
+
+        /* 처음에는 2단계 이후의 메뉴가 나오지 않도록 처리 */
+        /* 커서가 메뉴에 올라가면 하위 메뉴가 나오도록 처리 */
+        .menu > li ul {
+        display: none;
+        }
+        .menu li:hover > ul {
+        display: block;
+        }
+
+        /* 3단계 이후부터는 우측에 나오도록 위치를 수정(재정의) */
+        .menu > li > ul > li ul {
+        top:0;
+        left:100%;
+        }
+
+        /*
+        확장 스타일 : 메뉴를 상단에 붙이고 싶은 경우의 스타일
+        */
+        .menu.menu-fixed {
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 메뉴 만들기 -->
+    <ul class="menu menu-fixed">
+        <li>
+            <a href="">HOME</a>
+            <ul>
+                <li><a href="">홈</a></li>
+                <li><a href="">개인 정보</a></li>
+            </ul>
+        </li>
+        
+        <li><a href="">JOIN</a></li>
+        <li><a href="">LOGIN</a></li>
+        <li>
+            <a href="">BOARD</a>
+            <ul>
+                <li><a href="">중고 거래</a></li>
+                <li><a href="">동네 홍보</a></li>
+                <li><a href="">속닥 속닥</a></li>
+                <li>
+                <a href="">갤러리 게시판</a>
+                <!--3단 메뉴 만들기-->
+               <ul>
+                    <li><a href="#">움짤 갤러리</a></li>
+                    <li><a href="#">배경 갤러리</a></li>
+                    <li><a href="#">흑흑 갤러리</a></li>
+                </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    
+    <!-- 
+        메뉴가 fixed일 때 가장 큰 문제는 내용이 뒤로 숨어서 안보이는 것
+        - 내용을 밀어서 보이게 하면 된다!
+    -->
+    
+    <div style="margin-top:50px">
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>
+        <h1>테스트 코드</h1>        
+    </div>
+</body>
+</html>
+
