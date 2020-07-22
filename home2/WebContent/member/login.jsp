@@ -5,19 +5,19 @@
 
 <div align="center">
 	
-	<h2>로그인</h2>
+	<h6>아이디 비밀번호를 입력하신 후, 로그인 버튼을 클릭해 주세요.</h6>
 	
 	<form action="login.do" method="post">
 		<table border="0">
 			<tbody>
 				<tr>
-					<th>아이디</th>
+					<th></th>
 					<td>
 						<input type="text" name="member_id" required>
 					</td>
 				</tr>
 				<tr>
-					<th>비밀번호</th>
+					<th></th>
 					<td>
 						<input type="password" name="member_pw" required>
 					</td>
@@ -25,17 +25,18 @@
 			</tbody>
 			<tfoot>
 				<tr align="center">
-					<td colspan="2">
+					<td colspan="3">
 						<input type="submit" value="Login">
 					</td>
 				</tr>
-				<tr align="center">
-					<td colspan="2">
-						<a href="find_id.jsp">아이디가 기억나지 않습니다</a>
-						<br>
-						<a href="#">비밀번호가 기억나지 않습니다</a>
+				<tr align="center">				
+					<td colspan="3">
+						<input type= "checkbox">아이디 저장
+						<a href="find_id.jsp">아이디 찾기</a>
+						<a href="#">비밀번호 찾기</a>
 					</td>
 				</tr>
+
 			</tfoot>
 		</table>
 	</form>	
