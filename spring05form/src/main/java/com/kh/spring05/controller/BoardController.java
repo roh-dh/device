@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.spring05.entity.boardDto;
 
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
@@ -23,6 +24,11 @@ public class BoardController {
 		System.out.println("title : "+bdto.getBoard_title());
 		System.out.println("content : "+bdto.getBoard_content());
 		
-		return "complete";
+		return "redirect:content";
+	}
+
+	@GetMapping("/content")
+	public String content() {
+		return "content";
 	}
 }

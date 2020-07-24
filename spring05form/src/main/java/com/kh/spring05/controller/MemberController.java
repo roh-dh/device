@@ -57,6 +57,18 @@ public class MemberController {
 		
 		return "join_finish";
 	}
+	@GetMapping("/login")
+	public String login() {
+		return "member/login";
+	}
+	
+	@PostMapping("/login")
+	public String login(@ModelAttribute MemberDto memberDto) {
+		System.out.println("id = "+memberDto.getId());
+		System.out.println("pw = "+memberDto.getPw());		
+		return "redirect:/"; //프로젝트명은 작성하지 않음.
+	}
+	
 	
 	
 }
