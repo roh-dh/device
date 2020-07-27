@@ -9,6 +9,7 @@
  -->
  <mapper namespace="student">
  
+ <!-- 	<insert id="regist" parameterType="com.kh.spring07.entity.StudentDto"> 별칭은  mybatis-config에서 지정 -->
  <insert id="regist" parameterType="student">
   INSERT INTO student VALUES(#{name},#{age},#{score},SYSDATE)
  </insert>

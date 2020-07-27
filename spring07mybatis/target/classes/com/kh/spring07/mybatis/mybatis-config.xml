@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
    <!-- mybatis를 운용하기 위한 설정이 있다면 이곳에 작성 -->
    
    <!-- properties :  이 문서 또는 외부에서 사용할 변수 -->
-
+	<properties></properties>
    <!-- settings : mybatis 실행 중 반영되어야 할 규칙을 지정 (문서에 다 있음) -->
    <settings>
       <setting name="cacheEnabled" value="true"/>
