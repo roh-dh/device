@@ -27,7 +27,7 @@
 	</beans:bean>
 
 	<context:component-scan
-		base-package="com.kh.spring07" />
+		base-package="com.kh.spring09" />
 
 	<!-- 데이터베이스 도구를 등록 -연결도구 : org.springframework.jdbc.datasource.DriverManagerDataSource.class 
 		org.apache.commons.dbcp2.BasicDataSource.class -명령도구 : org.springframework.jdbc.core.JdbcTemplate.class -->
