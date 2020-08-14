@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            padding: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--
+        bootstrap에서는 버튼을 만드는 방법이 3가지가 있다.
+        -a 태그
+        -input 태그
+        -button 태그
+
+        버튼의 기본 스타일 : btn
+        버튼의 확장 스타일 : 
+    -->
+    <button class="btn btn-outline-primary">Praimary button</button>
+    <button class="btn btn-outline-secondary">secondary button</button>
+    <button class="btn btn-outline-info">info button</button>
+    <button class="btn btn-outline-success">success button</button>
+    <button class="btn btn-outline-warning">warning button</button>
+    <button class="btn btn-outline-danger">danger button</button>
+    <button class="btn btn-outline-link">link button</button>
+
+    <a href="http://www.naver.com" class="btn btn-outline-primary">네이버</a>
+
+
+    <hr>
+    <a href="http://www.google.com" class="btn btn-primary btn-lg">구글</a>
+    <a href="http://www.google.com" class="btn btn-primary btn-md">구글</a>
+    <a href="http://www.google.com" class="btn btn-primary btn-sm">구글</a>
+
+    <a href="http://www.google.com" class="btn btn-primary btn-block">구글</a>
+
+    <!--
+        비활성화(disabled) 버튼 클릭불가
+    -->
+    <a href="http://www.google.com" class="btn btn-primary btn-block disabled">구글</a>
+
+
+    <!--
+        에니메이션 버튼
+
+        버튼 내부에 spinner-border 클래스를 가지는 span을 추가
+    -->
+    <button class="btn btn-danger">
+        <span class= "spinner-border spinner-border-lg">ㅜ</span>
+    ㅁㄴㅇㅁ
+    </button>
+
+    <!--
+        버튼 그룹
+        btn-group 이라는 div로 버튼을 감싸면 버튼 그룹이 된다.
+    -->
+    <div class="btn-group btn-group-lg">
+    <button class="btn btn-outline-primary">버튼</button>
+    <button class="btn btn-outline-primary">버튼</button>
+    <button class="btn btn-outline-primary">버튼</button>
+    <button class="btn btn-outline-primary">버튼</button>
+    <button class="btn btn-outline-primary">버튼</button>
+</div>
+    <!--
+        수직 버튼 그룹
+
+        .btn 
+    -->
+    <div class="btn-group-vertical btn-group-lg">
+        <button class="btn btn-outline-primary">버튼</button>
+        <button class="btn btn-outline-primary">버튼</button>
+        <button class="btn btn-outline-primary">버튼</button>
+        <button class="btn btn-outline-primary">버튼</button>
+        <button class="btn btn-outline-primary">버튼</button>
+    </div>
+
+
+</body>
+
+</html>
